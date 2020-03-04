@@ -1,13 +1,20 @@
-import React from "react";
+import React, { Component }from "react";
 import { Col, Row, Container } from "../../components/Grid";
+import Card from "../../components/Card";
+import Article from "../../components/Article";
 import Jumbotron from "../..components/Jumbotron";
 import API from "../../utils/API";
-import { Link } from "react-router-dom";
+import { List } from "../../components/List";
 
 
 
+class Saved extends Component {
+  state = {
+    articles: []
+  };
 
-getSavedArticles = () =>{
+
+getSavedArticles = () => {
   API.getSavedArticles()
     .then(res =>
       this.setState({
@@ -37,7 +44,6 @@ render() {
         </Jumbotron>
         </Col>
       </Row>
-    </Container>
     <Row>
       <Col size="md-12">
         <Card title="Saved Articles" icon="download">
@@ -62,8 +68,10 @@ render() {
         </Card>
       </Col>
     </Row>
-  )
-};
+    </Container>
+  );
+}
+}
 
 
 
